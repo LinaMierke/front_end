@@ -60,7 +60,7 @@ export default function Album(props) {
 
     const classes = useStyles();
 
-   
+
 
     function handleDelete(population) {
         console.log(population)
@@ -83,9 +83,9 @@ export default function Album(props) {
 
 
     }
-    function handleEdit(capitalText){
+    function handleEdit(capitalText) {
         console.log(newCapital)
-        fetch("https://linacountries.herokuapp.com/" + capitalText ,{
+        fetch("https://linacountries.herokuapp.com/" + capitalText, {
 
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
@@ -97,11 +97,11 @@ export default function Album(props) {
         })
             .then(res => res.text())
             .then(res => console.log(res))
-       
+
 
     }
 
-    function handleChange(e){
+    function handleChange(e) {
         setNewCapital(e.target.value)
 
     }
@@ -175,7 +175,7 @@ export default function Album(props) {
                             </Container>
 
                             : <div>
-                                <BasicTextFields handleExit={()=>setCreate(false)}  />
+                                <BasicTextFields handleExit={() => setCreate(false)} />
                                 {/* <Button onClick={() => setCreate(false)} style={{ border: "1px solid #186BB9" }} > Exit </Button>
                                 <Button onClick={() => setCreate(false)} style={{ border: "1px solid #186BB9" }} > Submit </Button> */}
 
@@ -205,15 +205,19 @@ export default function Album(props) {
                                         </Typography>
                                     </CardContent>
                                     <CardActions>
-                                        <TextField placeholder={card.capital}  onChange={handleChange} />
+                                        <TextField placeholder={card.capital} onChange={handleChange} />
 
-                                        <Button onClick={()=> handleEdit(card.capital)} size="small" style={{ color: "#186BB9" }}>
+                                        <Button onClick={() => handleEdit(card.capital)}
+                                            size="small"
+                                            style={{ color: "#186BB9" }}
+                                        >
                                             Edit
                     </Button>
                                         <Button onClick={() => {
 
                                             handleDelete(card.population)
-                                        }} size="small" style={{ color: "#186BB9" }}>
+                                        }}
+                                            size="small" style={{ color: "#186BB9" }}>
 
                                             Delete
 
